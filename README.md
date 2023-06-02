@@ -13,8 +13,7 @@ CLO VF Platform Backend 과제 저장소 입니다.
 -
 
 - IDE : VS 2022
-- Language : C# (WPF)
-- ASP.NET Core .NET6
+- Language : C# (ASP.NET Core .NET6)
 
 📕 library to use
 -
