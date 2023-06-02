@@ -1,0 +1,19 @@
+﻿[Package used]
+1. NLog.Web.AspNetCore : 로깅 처리
+2. Microsoft.EntityFrameworkCore.Sqlite : Data Storage
+3. Microsoft.EntityFrameworkCore.Tools : DB 생성 및 마이그레이션 용도
+
+[Check list]
+1. NLog 설정 완료
+2. NLog 기반으로 미들웨어 Global exception 처리 완료
+3. EmployeeContac 모델 구성 완료
+	* 순수한 직원의 데이터 정보
+	* 각 직원 데이터 자체가 원자성이기에 EmployeeContac 테이블(모델)은 정규화 대상이 아니다. (FK로 릴레이션 불필요)
+4. Sqlite EF - Data Context 구성 완료 & Entity 모델 생성 완료
+5. Repositories 패턴 구조 설계 완료
+	* DB의 CRUD 처리 담당
+	* 실제 DB 쿼리 생성 및 실행 처리는 EfCoreRepository의 해당 DBContext에서 처리
+6. Repositories를 사용하는 서비스 생성 완료
+	* 컨트롤러에서 요청된 데이터의 비즈니스 로직 처리
+7. 요구사항 앤드 포인트 컨트롤러 구현 완료
+8. 마지막 서비스에서 비즈니스 로직 구현 완료
