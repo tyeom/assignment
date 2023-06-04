@@ -29,6 +29,7 @@ CLO VF Platform Backend 과제 저장소 입니다.
 -
 
 - [x] 직원 연락망 정보 조회 [페이징]
-- [x] 직원 연락망 검색 [이름으로 검색]
+- [x] 직원 연락망 검색 [By Name]
 - [x] 직원 연락망 업로드 [json, csv 파일 업로드 및 Form 직접 입력]
-- [x] 직원 연락망 삭제 [이메일로 삭제]
+- [x] 직원 연락망 삭제 [By Email]
+- [x] 직원 연락망 수정 [By Id or Email]
