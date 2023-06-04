@@ -72,6 +72,12 @@ public abstract class EfCoreRepository<TEntity, TDBContext> : IRepository<TEntit
         return findEntity as IEnumerable<TEntity>;
     }
 
+    public async Task<TEntity?> FindFirst(Expression<Func<TEntity, bool>> predicate)
+    {
+        var findEntity = await _context.Set<TEntity>().FirstOrDefaultAsync(predicate);
+        return findEntity;
+    }
+
     public async Task<TEntity> Update(TEntity entity)
     {
         _logger.LogInfo($"데이터 수정! - {entity.Id}");

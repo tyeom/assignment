@@ -16,6 +16,10 @@ public interface IEmployeeContacService
 
     Task<EmployeeContacModel?> Delete(long id);
 
+    Task<bool> Update(EmployeeContacModel employeeContacModel);
+
+    Task<bool> Update(long id, EmployeeContacModel employeeContacModel);
+
     Task<bool> Upload(EmployeeUploadModel employeeUploadModel);
 }
 
@@ -59,6 +63,36 @@ public class EmployeeContacService : IEmployeeContacService
     {
         var result = await _repository.Delete(id);
         return result;
+    }
+
+    public async Task<bool> Update(EmployeeContacModel employeeContacModel)
+    {
+        var findByEmail = await _repository.FindFirst(p => p.Email == employeeContacModel.Email);
+        if (findByEmail is null)
+            return false;
+
+        findByEmail.Name = employeeContacModel.Name;
+        findByEmail.Position = employeeContacModel.Position;
+        findByEmail.Tel = employeeContacModel.Tel;
+        findByEmail.Joined = employeeContacModel.Joined;
+
+        await _repository.Update(findByEmail);
+        return true;
+    }
+
+    public async Task<bool> Update(long id, EmployeeContacModel employeeContacModel)
+    {
+        var findById = await _repository.FindFirst(p => p.Id == id);
+        if (findById is null)
+            return false;
+
+        findById.Name = employeeContacModel.Name;
+        findById.Position = employeeContacModel.Position;
+        findById.Tel = employeeContacModel.Tel;
+        findById.Joined = employeeContacModel.Joined;
+
+        await _repository.Update(findById);
+        return true;
     }
 
     public async Task<bool> Upload(EmployeeUploadModel employeeUploadModel)

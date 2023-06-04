@@ -66,10 +66,40 @@ public class EmployeeController : Controller
     }
 
     // 임의로 추가 했습니다.
-    [HttpGet("employee/delete")]
+    [HttpDelete("employee/delete")]
     public async Task<IActionResult> DeleteByEmail(string email)
     {
         var employeeContactList = await _employeeContactService.DeleteByEmail(email);
         return Ok(employeeContactList);
+    }
+
+    // 임의로 추가 했습니다.
+    [HttpPost("employee/update")]
+    public async Task<IActionResult> UpdateByEmail([FromBody]EmployeeContacModel employeeContacModel)
+    {
+        var result = await _employeeContactService.Update(employeeContacModel);
+        if (result is true)
+        {
+            return Ok("Sucess");
+        }
+        else
+        {
+            return Ok("Fail");
+        }
+    }
+
+    // 임의로 추가 했습니다.
+    [HttpPost("employee/update/{id}")]
+    public async Task<IActionResult> UpdateByEmail(long id, [FromBody] EmployeeContacModel employeeContacModel)
+    {
+        var result = await _employeeContactService.Update(id, employeeContacModel);
+        if (result is true)
+        {
+            return Ok("Sucess");
+        }
+        else
+        {
+            return Ok("Fail");
+        }
     }
 }

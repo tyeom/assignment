@@ -19,27 +19,27 @@ public class Program
 
         var builder = WebApplication.CreateBuilder(args);
 
-        // DB 생성 [Sqlite]
+        // 01. DB 생성 [Sqlite]
         var dbContext = new EmployeeContacDBContext();
         dbContext.Database.EnsureCreated();
 
-        // 01. NLog 사용 설정
+        // 02. NLog 사용 설정
         builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
         builder.Host.UseNLog();
 
-        // 02. NLog Service IoC 등록
+        // 03. NLog Service IoC 등록
         builder.Services.AddSingleton<ILoggerService, LoggerService>();
 
-        // 03. DBContext Service IoC 등록
+        // 04. DBContext Service IoC 등록
         builder.Services.AddDbContext<EmployeeContacDBContext>(options =>
         {
             options.UseSqlite($"{builder.Configuration.GetConnectionString("EmployeeContacDB")}");
         });
 
-        // 04. EmployeeContacRepository IoC 등록
+        // 05. EmployeeContacRepository IoC 등록
         builder.Services.AddScoped<EmployeeContacRepository>();
 
-        // 05. IEmployeeContacService IoC 등록
+        // 06. IEmployeeContacService IoC 등록
         builder.Services.AddScoped<IEmployeeContacService, EmployeeContacService>();
 
 
