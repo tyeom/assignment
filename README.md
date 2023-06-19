@@ -1,13 +1,5 @@
-# assignment
-
-CLO VF Platform Backend 과제 저장소 입니다.
--
-> **특이사항**<br/>
-> - json 및 csv 파일 업로드시 &lt;input type="file" /&gt;로 업로드 요구 사항에서 file input 태그에 name 및 id 값이 **file** 로 설정 되어 있어야 합니다.
-> - json 및 csv 양식을 &lt;textarea&gt;&lt;textarea/&gt;로 직접 입력시 textarea 태그에 name 및 id 값이 **textData** 로 설정 되어 있어야 합니다.
-> - 데이터는 File DB Sqlite로 보관 되며, DB 위치는 프로젝트 루트 경로 밑에 **Database** 디렉토리에 생성 됩니다.<br/>이에 따라 다른 문제의 발생 여지를 줄이기 위해 프로젝트 실행시 VS를 관리자 권한으로 실행해서 확인해 주세요.
-
-***
+## ASP.NET Core(.NET 6) Web API basic example
+<br/>
 
 🛠️ 개발 환경 정보
 -
